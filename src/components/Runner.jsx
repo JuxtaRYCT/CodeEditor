@@ -7,6 +7,8 @@ const Runner = ({ editorReference, language }) => {
     const toast = useToast();
     const [output, setOutput] = useState(null);
     const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIisError] = useState(false)
+
 
     const runCode = async () => {
 
@@ -16,7 +18,8 @@ const Runner = ({ editorReference, language }) => {
         try {
             setIsLoading(true);
             const { run: result } = await executeCode(language, code);
-            setOutput(result.output)
+            setOutput(result.output.split("\n"));
+            result.stderr ? setIisError(true) : setIisError(false);
         } catch (error) {
             console.log(error);
             toast({
@@ -46,13 +49,17 @@ const Runner = ({ editorReference, language }) => {
             </Button>
             <Box h='75vh'
                 p={2}
-                border='1px solid'
-                borderRadius={4}
-                borderColor="#9B51E0"
-                color='white'
+                color={
+                    isError ? 'red.500' : 'white'
+                }
+                border='5px solid'
+                borderRadius={10}
+                borderColor={isError ? "red.500" : "#9B51E0"}
             >
                 {
-                    output ? output : "Click Run this code to check the output"
+                    output ? output.map(
+                        (line, i) => <Text key={i}>{line}</Text>
+                    ) : "Click Run this code to check the output"
                 }
             </Box>
         </Box>

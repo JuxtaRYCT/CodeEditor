@@ -24,19 +24,25 @@ const CodeEditor = () => {
     return (
         <Box>
             <HStack spacing={4}>
-                <Box w='50%'>
+                <Box w='50%'
+
+                >
                     <LanguageSelector language={language} onSelect={onSelect} />
-                    <Editor
-                        height="75vh"
-                        theme="vs-dark"
-                        language={language}
-                        defaultValue={BOILERPLATE[language]}
-                        onMount={onMount}
-                        value={value}
-                        onChange={
-                            (value, event) => setvalue(value)
-                        }
-                    />
+                    <Box border='2px solid' borderRadius={5} color='#9B51E0'>
+                        <Editor
+                            height="75vh"
+                            theme="vs-dark"
+                            language={language}
+                            defaultValue={BOILERPLATE[language]}
+                            onMount={onMount}
+                            value={value}
+                            onChange={
+                                (value, event) => setvalue(value)
+                            }
+
+                        />
+                    </Box>
+
                 </Box>
                 <Runner editorReference={editorReference} language={language} />
             </HStack>
