@@ -3,6 +3,7 @@ import { Editor } from "@monaco-editor/react";
 import { useRef, useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import { BOILERPLATE } from "../boilerplate";
+import Runner from "./Runner";
 
 const CodeEditor = () => {
     const editorReference = useRef();
@@ -37,6 +38,7 @@ const CodeEditor = () => {
                         }
                     />
                 </Box>
+                <Runner editorReference={editorReference} language={language} />
             </HStack>
 
         </Box>

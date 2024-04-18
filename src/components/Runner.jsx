@@ -1,9 +1,14 @@
 import { Box, Button, Text } from '@chakra-ui/react'
 import React from 'react'
 
-const Runner = () => {
+const Runner = ({ editorReference, language }) => {
+
+    const runCode = async () => {
+        const code = editorReference.current.getValue();
+    }
+
     return (
-        <Box>
+        <Box w='50%'>
             <Text mb={2} fontSize='large'>
                 Output
             </Text>
@@ -18,7 +23,7 @@ const Runner = () => {
                 p={2}
                 border='1px solid'
                 borderRadius={4}
-                borderColor="#262626"
+                borderColor="#9B51E0"
             >
                 Yash Raj Singh
             </Box>
