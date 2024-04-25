@@ -3,8 +3,13 @@ import { Box, Button, Text, background } from "@chakra-ui/react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "../styles/Landing.css";
 import TextBlock from "./Explanation";
-
+import { Link } from "react-router-dom/cjs/react-router-dom";
+import { useHistory } from "react-router-dom"
 const Landing = () => {
+
+  let history = useHistory();
+
+
   return (
     <Box
       minH="100vh"
@@ -49,7 +54,7 @@ const Landing = () => {
                 variant="solid"
               >Get Started</Button> */}
 
-              <button >
+              <button onClick={() => { history.push('/auth') }}>
                 Get Started
               </button>
             </div>
