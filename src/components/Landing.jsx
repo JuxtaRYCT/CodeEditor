@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Text, background } from "@chakra-ui/react";
+import { Box, Button, Center, Text, background } from "@chakra-ui/react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "../styles/Landing.css";
 import TextBlock from "./Explanation";
@@ -49,14 +49,18 @@ const Landing = () => {
           </ParallaxLayer>
           <ParallaxLayer offset={0} speed={0.04}>
             <div class="animation_layer parallax" id="button">
-              {/* <Button
-                color="brown"
-                variant="solid"
-              >Get Started</Button> */}
+              <Center mt='750'>
+                <Button
+                  color="white"
+                  variant="solid"
+                  onClick={() => { history.push('/auth') }}
+                >Get Started</Button>
+              </Center>
 
-              <button onClick={() => { history.push('/auth') }}>
+
+              {/* <button onClick={() => { history.push('/auth') }} className="button">
                 Get Started
-              </button>
+              </button> */}
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1} speed={0.35}>
